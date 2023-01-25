@@ -16,7 +16,7 @@ export const coinrankingApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: coinrankingBaseUrl }),
     endpoints: (builder) => ({
         getCoins: builder.query({
-            query: (showCount) => createRequest(`/coins?limit=${showCount}`, coinrankingApiHeaders)
+            query: (showCount = 10) => createRequest(`/coins?limit=${showCount}`, coinrankingApiHeaders)
         }),
         getCoinDetails: builder.query({
             query: (coinId) => createRequest(`/coin/${coinId}`, coinrankingApiHeaders)

@@ -17,7 +17,7 @@ const Homepage = () => {
   // console.log(allExchanges)
   const [allCoinsStats, setAllCoinStats] = useState()
 
-  const {data: allCoins, isFetching } = useGetCoinsQuery(10)
+  const {data: allCoins, isFetching } = useGetCoinsQuery()
 
   useEffect(() => {
     setAllCoinStats(allCoins?.data?.stats)
