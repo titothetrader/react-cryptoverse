@@ -7,13 +7,16 @@ import App from './App'
 import store from './app/store'
 
 import 'antd/dist/reset.css'
+import React from 'react'
 
 const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
     <BrowserRouter>
         <Provider store={store}>
-            <App />
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>
         </Provider>
     </BrowserRouter>
 )
