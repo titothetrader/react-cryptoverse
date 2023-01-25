@@ -8,15 +8,20 @@ import { useGetCoinsQuery } from '../services/coinrankingApi'
 import Cryptocurrencies from './Cryptocurrencies'
 import News from './News'
 import Loader from './Loader'
+import { useEffect, useState } from 'react'
 
 const { Title } = Typography
 
 const Homepage = () => {
   // const { data: allExchanges, isFetchingExchanges } = useGetCryptoExchangesQuery()
   // console.log(allExchanges)
+  const [allCoinsStats, setAllCoinStats] = useState()
 
   const {data: allCoins, isFetching } = useGetCoinsQuery(10)
-  const allCoinsStats = allCoins?.data?.stats
+
+  useEffect(() => {
+    setAllCoinStats(allCoins?.data?.stats)
+  }, [isFetching])
 
   if (isFetching) return <Loader />  
 
